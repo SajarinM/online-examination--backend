@@ -1,0 +1,5 @@
+{
+	"jwtPrivateKey": "ThisIsSecureKey",
+	"db": "mongodb+srv://user:H2qoJJGbgyCGVjwR@onlineexamination.uxrpb.mongodb.net/online-examination?retryWrites=true&w=majority",
+	"port": "3001"
+}

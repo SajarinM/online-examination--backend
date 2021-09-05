@@ -6,7 +6,6 @@ const requests = require("./routes/requests");
 const auth = require("./routes/auth");
 const exams = require("./routes/exams");
 const cors = require("cors");
-
 const app = express();
 
 // Terminate if key is not set

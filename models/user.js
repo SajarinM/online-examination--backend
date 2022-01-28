@@ -1,15 +1,21 @@
 const Joi = require("joi");
 const { Schema, model } = require("mongoose");
 const jwt = require("jsonwebtoken");
-const config = require("config");
+const { jwtPrivateKey } = require("../config");
 
 const userSchema = new Schema(
 	{
-		username: {type: String,required: true,minlength: 3,maxlength: 255,unique: true,},
+		username: {
+			type: String,
+			required: true,
+			minlength: 3,
+			maxlength: 255,
+			unique: true,
+		},
 		name: { type: String, required: true, minlenth: 1, maxlength: 50 },
 		type: { type: String, enum: ["teacher", "student"] },
 		friends: { type: [String], default: [] },
-		password: {type: String,required: true,minlenth: 1,maxlength: 1024,},
+		password: { type: String, required: true, minlenth: 1, maxlength: 1024 },
 	},
 	{ discriminatorKey: "type" }
 );
@@ -23,7 +29,7 @@ userSchema.methods.generateAuthToken = function () {
 			type: this.type,
 			isTeacher: this.type === "teacher",
 		},
-		config.get("jwtPrivateKey")
+		jwtPrivateKey
 	);
 };
 

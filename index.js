@@ -23,7 +23,7 @@ mongoose
 		console.log("Cannot connect to database");
 	});
 
-// Routes
+// Routes Midddlewares
 app.use(cors());
 app.use(express.json()); // Middleware to parse json to native object and reverse
 app.use("/api/users", users);
